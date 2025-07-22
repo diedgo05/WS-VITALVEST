@@ -67,7 +67,7 @@ func main() {
 		}
 	})
 
-	port := ":8080"
+	port := ":3000"
 	log.Println("🚀 Servidor corriendo en el puerto", port)
 	log.Println("📡 WebSocket disponible en ws://localhost:8080/ws")
 	log.Println("📤 Endpoint sendData disponible en http://localhost:8080/sendData")
