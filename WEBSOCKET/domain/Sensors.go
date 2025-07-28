@@ -18,6 +18,6 @@ type Sensors struct {
 	} `json:"mlx90614"`	
 	
 	GSR struct{
-		Porcentaje int
+		Porcentaje float64
 	}`json:"GSR"`	
 }
