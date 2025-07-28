@@ -11,6 +11,8 @@ import (
 )
 
 func main() {
+	log.Println("🔧 Inicializando servidor...")
+
 	router := gin.Default()
 
 	router.Use(cors.New(cors.Config{
@@ -21,12 +23,16 @@ func main() {
 	}))
 
 	wsServer := wsAdapters.NewWebSocketServer()
-	go wsServer.Run()
+	go func() {
+		log.Println("🧠 Servidor WebSocket iniciado")
+		wsServer.Run()
+	}()
 
 	wsController := wsControllers.NewWebSocketController(wsServer)
-	
+
 	wsRoutes.RegisterWSEndpoints(router, wsController)
 
 	port := ":3000"
+	log.Println("🚀 Servidor HTTP iniciado en http://localhost" + port)
 	log.Fatal(router.Run(port))
 }
